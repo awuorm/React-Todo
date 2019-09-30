@@ -1,5 +1,6 @@
 import React from "react";
 
+
 class Todo extends React.Component {
     constructor(props) {
         super(props);
@@ -8,9 +9,10 @@ class Todo extends React.Component {
         }
     }
     render() {
-        
+        console.log("props from todolist",this.state.todo)
         return(<>
-            <div >{this.state.todo.task}</div>
+            <div >Task: {this.state.todo.task}</div>
+            
         </>)
     }
 }

@@ -13,10 +13,10 @@ class TodoList extends React.Component {
     }
     render(
         ) {
-            
+            console.log("props from app",this.state.todos)
         return(
             <div>
-                {this.state.todos.map((todo) => <Todo key={todo.id} todo={todo}/>)}
+                {this.props.initialToDo.map((todo) => <Todo key={todo.id} todo={todo}/>)}
             </div>
         )
     }
