@@ -6,10 +6,6 @@ import Todo from "./Todo";
 class TodoList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-           todos: this.props.initialToDo,
-
-        }
     }
     render(
         ) {

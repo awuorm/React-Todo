@@ -7,7 +7,7 @@ class App extends React.Component {
   state = {
     initialToDo: [],
     formInput: "",
-    completeInput: null,
+    completeInput: null
   };
 
   addTodo = event => {
@@ -15,7 +15,7 @@ class App extends React.Component {
     this.todo = {
       task: this.state.formInput,
       id: Uuid(),
-      completed: false,
+      completed: false
     };
     this.setState({
       initialToDo: [...this.state.initialToDo, this.todo]
@@ -31,25 +31,16 @@ class App extends React.Component {
   onCompletionChange = id => {
     // if (event.target.value === "on") event.target.value = true;
     // event.target.value = false;
-this.displayComplete = this.state.initialToDo;
-
-    this.displayComplete.map(todo => {
-      if (todo.id === id) {
-        
-        // this.setState( {initialToDo: [todo.completed: true]})
-        // event.preventDefault();
-    this.todo = {
-      task: this.state.formInput,
-      id: Uuid(),
-      completed: true,
-    };
-    this.setState({
-      initialToDo: [...this.state.initialToDo, this.todo]
+    let displayComplete = this.state.initialToDo.map(todo => {
+      if (todo.id !== id) {
+        return todo;
+      }
+        return {...todo, completed: true};
     });
-        console.log("Complete input",this.todo);
-        return "hello";
-      } 
-    });
+    this.setState ({
+      initialToDo: [...displayComplete]
+    })
+    console.log("Display ",this.state.initialToDo)
   };
 
   onClear = event => {
@@ -67,7 +58,10 @@ this.displayComplete = this.state.initialToDo;
     console.log("Complete input", this.state.initialToDo);
     return (
       <div>
-        <TodoList onClick={this.onCompletionChange} initialToDo={this.state.initialToDo} />
+        <TodoList
+          onClick={this.onCompletionChange}
+          initialToDo={this.state.initialToDo}
+        />
         <TodoForm
           onChange={this.onValueChange}
           onSubmit={this.addTodo}

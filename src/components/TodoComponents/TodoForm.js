@@ -11,18 +11,6 @@ class TodoForm extends React.Component {
       }
     };
   }
-  // addTodo = event => {
-  //     event.preventDefault();
-  //   };
-  // onValueChange = event => {
-  //     this.setState({
-  //       [this.props.initialToDo]: {
-  //         ...this.state.todo,
-  //       [event.target.name]: event.target.value
-  //       }
-
-  //     });
-  //   };
   render() {
     console.log(" values from form", this.state.todo);
     return (
